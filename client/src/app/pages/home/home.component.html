@@ -1,0 +1,90 @@
+<!-- banner start -->
+<app-carousel 
+  [bannerResult]="bannerResult"
+></app-carousel>
+<!-- banner end -->
+
+<select 
+  #mediaTypes
+  name="media-types" 
+  id="media-types"
+  (change)="onSelectedMediaType(mediaTypes.value)"
+>
+  <option value="movies">Movies</option>
+  <option value="tv">TV</option>
+</select>
+
+<ng-container *ngIf="selectedMediaType === 'movies'; else tv_content">
+  <app-movie-slider
+    [movies]="trendingMovieResult"
+    [heading]="'Trending Movies'"
+  >
+  </app-movie-slider>
+    
+  <app-movie-slider
+    [movies]="actionMovieResult"
+    [heading]="'Action Movies'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="adventureMovieResult"
+    [heading]="'Adventure Movies'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="animationMovieResult"
+    [heading]="'Animated Movies'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="comedyMovieResult"
+    [heading]="'Comedy Movies'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="documentaryMovieResult"
+    [heading]="'Documentaries'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="scifiMovieResult"
+    [heading]="'Sci Fi Movies'"
+  >
+  </app-movie-slider>
+  
+  <app-movie-slider
+    [movies]="thrillerMovieResult"
+    [heading]="'Thriller Movies'"
+  >
+  </app-movie-slider>
+</ng-container>
+<ng-template #tv_content>
+  <app-tv-slider
+    [tvShows]="trendingTvResult"
+    [heading]="'Trending TV'"
+  >
+  </app-tv-slider>
+
+  <app-tv-slider
+    [tvShows]="animationTvResult"
+    [heading]="'Animated TV'"
+  >
+  </app-tv-slider>
+
+  <app-tv-slider
+    [tvShows]="comedyTvResult"
+    [heading]="'Comedy TV'"
+  >
+  </app-tv-slider>
+
+  <app-tv-slider
+    [tvShows]="documentaryTvResult"
+    [heading]="'Documentary TV'"
+  >
+  </app-tv-slider>
+</ng-template>

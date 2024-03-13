@@ -1,0 +1,40 @@
+<div class="tv-season-details__header">
+  <ng-container *ngIf="tvSeasonDetails">
+    <img *ngIf="tvSeasonDetails.poster_path; else no_season_img_content"
+      src="http://image.tmdb.org/t/p/w500/{{ tvSeasonDetails.poster_path }}" 
+    >
+    <ng-template #no_season_img_content>
+      <div class="tv-season-details__no-img-content">
+        NO IMAGE FOUND
+      </div>
+    </ng-template>
+    <div>
+      <h1>{{tvDetails.name}}</h1>
+      <h2>{{tvSeasonDetails.name}}</h2>
+      <p>{{tvSeasonDetails.overview}}</p>
+      <div class="tv-season-details__rating">
+        Rating: {{tvSeasonDetails.vote_average}}/10
+      </div>
+    </div>
+  </ng-container>
+</div>
+<div class="tv-season-details__line-break"></div>
+<div class="tv-season-details__episode-container">
+  <h1>Episodes</h1>
+  <ng-container *ngIf="tvSeasonDetails">
+    <div class="tv-season-details__episode-card-container">
+      <ng-container *ngFor="let episode of tvSeasonDetails.episodes">
+        <div class="tv-season-details__episode-card">
+          <img
+            src="http://image.tmdb.org/t/p/w400/{{ episode.still_path }}" 
+          >
+          <div>
+            <h3>{{episode.name}}</h3>
+            <h4>Runtime: {{episode.runtime}}mins</h4>
+            <p>{{episode.overview}}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

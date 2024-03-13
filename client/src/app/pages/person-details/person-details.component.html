@@ -1,0 +1,63 @@
+<div class="person-details__bio-container">
+  <div class="person-details__bio-img-container">
+    <img
+    src="http://image.tmdb.org/t/p/original/{{ personDetails.profile_path }}" 
+    >
+  </div>
+  <div class="person-details__bio-info">
+    <h1>{{ personDetails.name }}</h1>
+    <h3>Bio</h3>
+    <p>{{personDetails.biography}}</p>
+    <h4>Birthday: {{getFullDateString(personDetails.birthday)}}</h4>
+    <h4>Birth Place: {{personDetails.place_of_birth}}</h4>
+    <h4>Role: {{personDetails.known_for_department}}</h4>
+  </div>
+</div>
+
+<div class="person-details__acting-credits-container">
+  <h2>Movie Casting Credits</h2>
+  <div class="person-details__acting-credits-cards-container">
+    <div *ngFor="let credit of personCreditsMovieCast">
+      <div class="person-details__acting-credits-card" >
+        <img *ngIf="credit.poster_path"
+          src="http://image.tmdb.org/t/p/original/{{ credit.poster_path }}" 
+          [routerLink]="['/movie',credit.id]"
+        >
+        <div 
+          *ngIf="!credit.poster_path"
+          class="person-details__acting-credits-noimg"
+        >
+          NO IMAGE FOUND
+        </div>
+        <div>
+          <h3>{{ credit.original_title }}</h3>
+          <h5 *ngIf="credit.character">as {{ credit.character }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="person-details__acting-credits-container">
+  <h2>TV Casting Credits</h2>
+  <div class="person-details__acting-credits-cards-container">
+    <div *ngFor="let credit of personCreditsTVCast">
+      <div class="person-details__acting-credits-card" >
+        <img *ngIf="credit.poster_path"
+          src="http://image.tmdb.org/t/p/original/{{ credit.poster_path }}" 
+          [routerLink]="['/tv',credit.id]"
+        >
+        <div 
+          *ngIf="!credit.poster_path"
+          class="person-details__acting-credits-noimg"
+        >
+          NO IMAGE FOUND
+        </div>
+        <div>
+          <h3>{{ credit.original_name }}</h3>
+          <h5 *ngIf="credit.character" >as {{ credit.character }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<section class="review-details__reviews-container">
+  <h2>Reviews</h2>
+  <ng-container *ngIf="reviewDetails.length > 0; else no_reviews_available">
+    <div class="review-details__reviews-card-container">
+      <ng-container *ngFor="let review of reviewDetails">
+        <div class="review-details__review-card">
+          <div class="review-details__review-profile">
+            <div class="review-details__review-profile-details">
+              <img 
+                *ngIf="review.author_details.avatar_path; else no_review_img" 
+                src="http://image.tmdb.org/t/p/w500/{{ review.author_details.avatar_path }}" 
+              >
+              <ng-template #no_review_img>
+                <div class="review-details__review-profile-noimg"></div>
+              </ng-template>
+              <h3>{{review.author}}</h3>
+            </div>
+            <div>
+              <div
+                *ngIf="review.author_details.rating; else no_review_rating" 
+                class="review-details__review-rating"
+              >Rating: {{review.author_details.rating }}/10</div>
+            </div>
+            <ng-template #no_review_rating>
+              <div class="review-details__review-rating">
+                No Rating
+              </div>
+            </ng-template>
+          </div>
+          <p>{{review.content}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #no_reviews_available>
+    <h3>No Reviews Available</h3>
+  </ng-template>
+</section>

@@ -1,0 +1,21 @@
+<div class="movie-slider__contain">
+  <div class="movie-slider__row">
+    <h4>{{ heading }}</h4>
+    <div #movie_slider 
+    (mousedown)="onMouseDown($event)" 
+    (mousemove)="onMouseMove($event)" 
+    (mouseup)="onMouseUp($event)" 
+    (mouseleave)="onMouseUp($event)"
+    [scrollLeft]="newMouseOffset"
+    class="movie-slider__row-poster" >
+      <ng-container *ngFor="let t of movies">
+        <img 
+          src="https://image.tmdb.org/t/p/w200/{{ t.poster_path }}" 
+          alt="{{t.title}}"
+          class = "movie-slider__rowimg movie-slider__large-poster"
+          [routerLink]="['/movie',t.id]"
+        >
+      </ng-container>
+    </div>
+  </div>
+</div>

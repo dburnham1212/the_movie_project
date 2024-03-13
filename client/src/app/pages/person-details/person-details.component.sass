@@ -1,0 +1,96 @@
+.person-details__bio-container
+  padding: 20px
+  display: flex
+  gap: 20px
+  border-bottom: 1px solid lightgrey
+
+  .person-details__bio-img-container
+    display: flex
+
+    img 
+      height: 400px
+
+.person-details__bio-info
+  h1
+    color: lightgrey
+    margin-bottom: 20px
+
+  h3
+    color: lightgrey
+    margin-bottom: 10px
+
+  h4
+    color: lightgrey
+    margin-bottom: 20px
+
+  p
+    color: lightgrey
+    margin-bottom: 20px
+
+.person-details__acting-credits-container
+  padding: 20px   
+  border-bottom: 1px solid lightgrey
+
+  h2
+    color: lightgrey
+    text-align: center
+    margin-bottom: 20px
+
+.person-details__acting-credits-cards-container
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-gap: 20px
+
+  .person-details__acting-credits-card
+    display: flex
+    gap: 20px
+    border: 1px solid white
+    border-radius: 10px
+    padding: 10px
+    img
+      height: 150px
+      cursor: pointer
+
+    .person-details__acting-credits-noimg
+      display: flex
+      align-items: center
+      text-align: center
+      height: 150px
+      background-color: grey
+      width: 100px
+      color: lightgrey
+      border: 2px solid lightgrey
+
+
+    h3 
+      color: lightgrey
+      padding-bottom: 10px
+
+    h5
+      color: lightgrey
+
+
+
+@media (max-width: 1350px)
+  .person-details__acting-credits-cards-container
+    grid-template-columns: 1fr 1fr 1fr
+
+@media (max-width: 992px)
+  .person-details__acting-credits-cards-container
+    grid-template-columns: 1fr 1fr
+
+@media (max-width: 900px)
+  .movie-details__videos-container
+    grid-template-columns: 1fr
+
+@media (max-width: 768px)
+  .person-details__bio-container
+    flex-direction: column
+
+    .person-details__bio-img-container
+      justify-content: center
+  
+  .person-details__acting-credits-cards-container
+    grid-template-columns: 1fr
+
+  

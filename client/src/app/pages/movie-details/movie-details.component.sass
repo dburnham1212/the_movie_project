@@ -1,0 +1,91 @@
+.movie-details__container
+  padding: 20px
+
+  .movie-details__header
+    display: flex
+    gap: 20px
+    
+    img 
+      height: 400px
+      width: auto
+
+    h1
+      font-weight: bold
+      color: lightgrey
+      margin-bottom: 20px
+
+    p
+      color: lightgrey
+      margin-bottom: 20px
+
+    .movie-details__rating
+      background-color: #FFD700
+      padding: 5px
+      border-radius: 10px
+      width: max-content
+
+.movie-details__videos-section
+  padding: 20px
+  h2
+    text-align: center
+    color: lightgrey
+    padding-bottom: 20px
+
+.movie-details__videos-container
+  display: grid
+  grid-gap: 20px
+  grid-template-columns: 1fr 1fr 1fr
+  
+  .movie-details__video
+    display: flex
+    flex-direction: column
+    align-items: center
+
+  h5 
+    color: white
+    padding-bottom: 10px
+
+  iframe
+    border: 2px solid darkgrey
+    width: 420px
+    height: 315px
+
+.movie-details__line-break
+  width: 98% 
+  margin: auto
+  border-bottom: 1px solid #222222
+
+.movie-details__recommended-container
+  padding: 20px
+
+  h2 
+    color: lightgrey
+    text-align: center
+    margin-bottom: 20px
+
+  .movie-details__recommended-poster-container::-webkit-scrollbar
+    display: none
+
+  .movie-details__recommended-poster-container
+    display: flex
+    overflow-y: hidden
+    overflow-x: auto
+
+    img
+      margin: 0 2.5px
+      height: 200px
+      cursor: pointer
+
+@media (max-width: 1350px)
+  .movie-details__videos-container
+    grid-template-columns: 1fr 1fr
+
+
+@media (max-width: 900px)
+  .movie-details__videos-container
+    grid-template-columns: 1fr
+
+@media (max-width: 768px)
+  .movie-details__header
+    flex-direction: column
+    align-items: center

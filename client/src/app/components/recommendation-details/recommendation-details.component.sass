@@ -1,0 +1,25 @@
+.recommended-details__recommended-container
+  padding: 20px
+
+  h2 
+    color: lightgrey
+    text-align: center
+    margin-bottom: 20px
+
+  .recommended-details__recommended-poster-container::-webkit-scrollbar
+    display: none
+
+  .recommended-details__recommended-poster-container
+    display: flex
+    overflow-y: hidden
+    overflow-x: auto
+
+    img
+      margin-right: 10px
+      height: 200px
+      cursor: pointer
+      transition: tranform 450ms
+
+    img:hover
+      transform: scale(1.08)
+      cursor: pointer

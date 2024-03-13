@@ -1,0 +1,15 @@
+<div class="tv-slider__contain">
+  <div class="tv-slider__row">
+    <h4>{{ heading }}</h4>
+    <div class="tv-slider__row-poster" >
+      <ng-container *ngFor="let t of tvShows">
+        <img 
+          src="https://image.tmdb.org/t/p/w200/{{ t.poster_path }}" 
+          alt="{{t.title}}"
+          class = "tv-slider__rowimg tv-slider__large-poster"
+          [routerLink]="['/tv',t.id]"
+        >
+      </ng-container>
+    </div>
+  </div>
+</div>

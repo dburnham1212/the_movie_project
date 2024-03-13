@@ -1,0 +1,98 @@
+<div class="tv-details__header">
+  <ng-container *ngIf="tvDetails">
+    <img *ngIf="tvDetails.poster_path"
+      src="http://image.tmdb.org/t/p/w500/{{ tvDetails.poster_path }}" 
+    >
+    <div>
+      <h1>{{tvDetails.name}}</h1>
+      <p>{{tvDetails.overview}}</p>
+      <div class="tv-details__rating">
+        Rating: {{tvDetails.vote_average}}/10
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="tv-details__line-break"></div>
+
+<div class="tv-details__seasons-container">
+  <h2>Seasons</h2>
+  <ng-container *ngIf="tvDetails">
+    <div class="tv-details__seasons-card-container">
+      <div *ngFor="let season of tvDetails.seasons" >
+        <div class="tv-details__seasons-card">
+          <img *ngIf="season.poster_path; else no_season_img_content"
+            src="http://image.tmdb.org/t/p/w500/{{ season.poster_path }}" 
+            [routerLink]="['/tv', tvDetails.id, 'season', season.season_number]"
+          >
+          <ng-template #no_season_img_content>
+            <div 
+              class="tv-details__seasons-no-img"
+              [routerLink]="['/tv', tvDetails.id, 'season', season.season_number]"
+            >
+              NO IMAGE FOUND
+            </div>
+          </ng-template>
+          <div>
+            <h3>{{ season.name}} </h3>
+            <h4>Episodes: {{season.episode_count}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="tv-details__line-break"></div>
+
+<section class="tv-details__videos-section">
+  <h2>Trailers</h2>
+  <ng-container *ngIf="tvVideoDetails.length > 0, else other_content">
+    <div class="tv-details__videos-container">
+      <ng-container *ngFor="let video of tvVideoDetails; let i = index">
+        <div class="tv-details__video">
+          <h5>{{video.name}}</h5>
+          <iframe 
+            [src]="getSanitizedYTVideoUrl(video.key)" allowfullscreen>
+          </iframe>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #other_content>
+    <h3>No Trailers Available</h3>
+  </ng-template>
+</section>
+
+<div class="tv-details__line-break"></div>
+
+<app-review-details
+  [reviewDetails]="tvReviews"
+>
+</app-review-details>
+
+<div class="tv-details__line-break"></div>
+
+<app-recommendation-details
+  [heading]="'Similar TV'"
+  [recommendationDetails]="similarTv"
+  [basePath]="'/tv'"
+>
+</app-recommendation-details>
+
+<div class="tv-details__line-break"></div>
+
+<app-recommendation-details
+  [heading]="'Recommended TV'"
+  [recommendationDetails]="tvRecommendations"
+  [basePath]="'/tv'"
+>
+</app-recommendation-details>
+
+<div class="tv-details__line-break"></div>
+
+<app-cast-details
+  [castDetails] = "tvDetailsCast"
+>
+</app-cast-details>
+

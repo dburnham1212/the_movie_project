@@ -1,0 +1,29 @@
+.tv-slider__contain
+  padding: 20px
+  .tv-slider__row
+    h4 
+      color: lightgrey
+      padding-bottom: 20px
+
+    .tv-slider__row-poster::-webkit-scrollbar
+      display: none
+
+    .tv-slider__row-poster
+      display: flex
+      overflow-y: hidden
+      overflow-x: auto
+
+      .tv-slider__rowimg
+        max-height: 200px
+        object-fit: contain
+        width: 100%
+        box-sizing: content-box
+        transition: tranform 450ms
+        margin-right: 10px
+
+      .tv-slider__rowimg:hover
+        transform: scale(1.08)
+        cursor: pointer
+
+      .tv-slider__largeposter
+        max-height: 300px

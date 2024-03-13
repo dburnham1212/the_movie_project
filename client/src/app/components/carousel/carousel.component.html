@@ -1,0 +1,40 @@
+<div *ngIf="bannerResult && bannerResult.length > 0" class="carousel-container"> 
+  <img *ngFor="let image of bannerResult; let i = index" 
+    src="https://image.tmdb.org/t/p/original/{{ image.backdrop_path }}" alt="image.title"
+    [ngClass]="{'image-active': selectedIndex === i}"
+    class="fade"
+  >
+
+ 
+  <button *ngIf="controls" class="btn-carousel btn-prev"
+    (click)="onPrevClick()">
+    <i class="fa-solid fa-circle-arrow-left icon-carousel icon-prev"></i>
+  </button>
+  <button *ngIf="controls" class="btn-carousel btn-next"
+    (click)="onNextClick()">
+    <i class="fa-solid fa-circle-arrow-right icon-carousel icon-next"></i>
+  </button> 
+  <div *ngIf="indicators" class="carousel-dot-container">
+    <span *ngFor="let dot of bannerResult; let i = index"
+      class = "dot"
+      [ngClass]="{'active': selectedIndex === i}"
+      (click)="selectImage(i)"
+      >
+    </span>
+  </div>
+</div>
+
+<div class="carousel-info"> 
+  <h1 *ngFor="let image of bannerResult; let i = index"
+  [ngClass]="{'active': selectedIndex === i}">
+    {{ image.title || image.name }} ({{ image.media_type }})
+  </h1>
+  <h2 *ngFor="let image of bannerResult; let i = index"
+  [ngClass]="{'active': selectedIndex === i}">
+      {{ getYear(image.release_date || image.first_air_date) }}
+  </h2>
+  <p *ngFor="let image of bannerResult; let i = index"
+  [ngClass]="{'active': selectedIndex === i}">
+    {{image.overview}}
+  </p>
+</div>

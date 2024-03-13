@@ -1,0 +1,50 @@
+.movie-details__cast-section
+  padding: 20px
+  h2 
+    color: white
+    text-align: center
+    padding-bottom: 20px
+
+.movie-details__cast-containter
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-gap: 20px
+
+.movie-details__cast-card
+  display: flex
+  gap: 20px
+  border: 1px solid lightgrey
+  border-radius: 10px
+  padding: 10px
+  img
+    height: 100px
+    cursor: pointer
+
+  .movie-details__cast-noimg
+    display: flex
+    align-items: center
+    text-align: center
+    height: 100px
+    background-color: grey
+    color: lightgrey
+    width: 69px
+    border: 2px solid lightgrey
+
+  h5 
+    color: lightgrey
+    padding-bottom: 10px
+
+  h6 
+    color: lightgrey
+
+@media (max-width: 1350px)
+  .movie-details__cast-containter
+    grid-template-columns: 1fr 1fr 1fr
+
+@media (max-width: 992px)
+  .movie-details__cast-containter
+    grid-template-columns: 1fr 1fr
+
+@media (max-width: 768px)
+  .movie-details__cast-containter
+    grid-template-columns: 1fr

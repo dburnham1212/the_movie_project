@@ -1,0 +1,65 @@
+<div class="movie-details__container">
+  <div class="movie-details__header">
+    <img
+      src="https://image.tmdb.org/t/p/original/{{ movieResult.poster_path }}" 
+      alt="s.title"
+    >
+    <div>
+      <h1>{{ movieResult.original_title }} ({{ getYear(movieResult.release_date) }})</h1>
+      <p>{{ movieResult.overview }}</p>
+      <div class="movie-details__rating">
+        Rating: {{movieResult.vote_average}}/10
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="movie-details__line-break"></div>
+
+<section class="movie-details__videos-section">
+  <h2>Trailers</h2>
+  <div class="movie-details__videos-container">
+    <ng-container *ngFor="let video of movieVideoResult; let i = index">
+      <ng-container *ngIf="video.site === 'YouTube' && (video.type==='Trailer' || video.type==='Teaser')"> 
+        <div class="movie-details__video">
+          <h5>{{video.name}}</h5>
+          <iframe 
+            [src]="getSanitizedYTVideoUrl(movieVideoResult[i].key)" allowfullscreen>
+          </iframe>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</section>
+
+<div class="movie-details__line-break"></div>
+
+<app-review-details
+  [reviewDetails]="movieReviews"
+>
+</app-review-details>
+
+<div class="movie-details__line-break"></div>
+
+<app-recommendation-details
+  [heading]="'Similar Movies'"
+  [recommendationDetails]="similarMovies"
+  [basePath]="'/movie'"
+>
+</app-recommendation-details>
+
+<div class="movie-details__line-break"></div>
+
+<app-recommendation-details
+  [heading]="'Recommended Movies'"
+  [recommendationDetails]="movieRecommendations"
+  [basePath]="'/movie'"
+>
+</app-recommendation-details>
+
+<div class="movie-details__line-break"></div>
+
+<app-cast-details
+  [castDetails] = "movieCastResult"
+>
+</app-cast-details>

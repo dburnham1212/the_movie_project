@@ -1,0 +1,28 @@
+.movie-slider__contain
+  padding: 20px
+  .movie-slider__row
+    h4 
+      color: lightgrey
+      padding-bottom: 20px
+
+    .movie-slider__row-poster::-webkit-scrollbar
+      display: none
+
+    .movie-slider__row-poster
+      display: flex
+      overflow-y: hidden
+      overflow-x: auto
+      .movie-slider__rowimg
+        max-height: 200px
+        object-fit: contain
+        width: 100%
+        box-sizing: content-box
+        transition: tranform 450ms
+        margin-right: 10px
+
+      .movie-slider__rowimg:hover
+        transform: scale(1.08)
+        cursor: pointer
+
+      .movie-slider__largeposter
+        max-height: 300px

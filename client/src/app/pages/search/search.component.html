@@ -1,0 +1,33 @@
+<div class="search__contain">
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+    <div class="search_row">
+        <input class="search__search-input" formControlName='movieName' type="text" placeholder="Search...">
+        <button class="search__search-button">Search</button>
+    </div>
+  </form>
+</div>
+
+<div class="search__results-container">
+  <div class="search__results-card" *ngFor="let s of searchResult">
+      <div *ngIf="s.poster_path">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}" 
+          alt="s.title"
+          [routerLink]="['/movie',s.id]"
+        >
+      </div>
+      <div *ngIf="!s.poster_path">
+        <div  
+          class="search_results-no-image"
+          [routerLink]="['/movie',s.id]"
+        >
+            No Image Found
+        </div>
+      </div>
+      <div class="search__results-info">
+        <h5 *ngIf="s.title">{{s.title}}</h5>
+        <p *ngIf="s.overview">{{s.overview}}</p>
+        <p *ngIf="!s.overview">No Overview Found</p>
+      </div>
+  </div>
+</div>
