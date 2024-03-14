@@ -6,11 +6,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CastDetailsComponent } from '../../components/cast-details/cast-details.component';
 import { ReviewDetailsComponent } from '../../components/review-details/review-details.component';
 import { RecommendationDetailsComponent } from '../../components/recommendation-details/recommendation-details.component';
+import { VideoDisplayComponent } from '../../components/video-display/video-display.component';
 
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, RouterModule, CastDetailsComponent, ReviewDetailsComponent, RecommendationDetailsComponent],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    CastDetailsComponent, 
+    ReviewDetailsComponent, 
+    RecommendationDetailsComponent,
+    VideoDisplayComponent
+  ],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.sass'
 })
@@ -40,7 +48,7 @@ export class MovieDetailsComponent {
 
   fetchMovieInfo(id: any) {
     this.getMovie(id)
-    this.getVideo(id);
+    this.getMovieVideos(id);
     this.getMovieReviews(id);
     this.getMovieReccomentations(id);
     this.getMovieCast(id);
@@ -58,15 +66,14 @@ export class MovieDetailsComponent {
     return new Date(date).getFullYear();
   }
 
-  getVideo(id:any) {
+  getMovieVideos(id:any) {
     this.service.getMovieVideo(id).subscribe((result) => {
-      console.log(result)
-      this.movieVideoResult = result.results;
+      let filteredMovieVideoDetails:any = result.results.filter((video:any) => {
+        return video.site==='YouTube' && (video.type==='Trailer' || video.type==='Teaser')
+      })
+      console.log(filteredMovieVideoDetails);
+      this.movieVideoResult = filteredMovieVideoDetails;
     })
-  }
-
-  getSanitizedYTVideoUrl(key:string): any {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${key}`);
   }
   
   getMovieReviews(id: any) {

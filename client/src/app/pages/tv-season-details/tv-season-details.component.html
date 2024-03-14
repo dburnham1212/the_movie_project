@@ -18,7 +18,9 @@
     </div>
   </ng-container>
 </div>
+
 <div class="tv-season-details__line-break"></div>
+
 <div class="tv-season-details__episode-container">
   <h1>Episodes</h1>
   <ng-container *ngIf="tvSeasonDetails">
@@ -27,6 +29,7 @@
         <div class="tv-season-details__episode-card">
           <img
             src="http://image.tmdb.org/t/p/w400/{{ episode.still_path }}" 
+            [routerLink] = "['/tv', tvDetails.id, 'season', seasonNumber, 'episode', episode.episode_number]"
           >
           <div>
             <h3>{{episode.name}}</h3>
@@ -38,3 +41,17 @@
     </div>
   </ng-container>
 </div>
+
+<div class="tv-season-details__line-break"></div>
+
+<app-video-display
+[videoDisplayDetails]="tvSeasonVideos"
+>
+</app-video-display>
+
+<div class="tv-season-details__line-break"></div>
+
+<app-cast-details
+  [castDetails]="tvSeasonCredits"
+>
+</app-cast-details>

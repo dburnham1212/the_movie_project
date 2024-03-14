@@ -6,11 +6,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CastDetailsComponent } from '../../components/cast-details/cast-details.component';
 import { ReviewDetailsComponent } from '../../components/review-details/review-details.component';
 import { RecommendationDetailsComponent } from '../../components/recommendation-details/recommendation-details.component';
+import { VideoDisplayComponent } from '../../components/video-display/video-display.component';
 
 @Component({
   selector: 'app-tv-details',
   standalone: true,
-  imports: [CommonModule, RouterModule, CastDetailsComponent, ReviewDetailsComponent, RecommendationDetailsComponent],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    CastDetailsComponent, 
+    ReviewDetailsComponent, 
+    RecommendationDetailsComponent,
+    VideoDisplayComponent
+  ],
   templateUrl: './tv-details.component.html',
   styleUrl: './tv-details.component.sass'
 })

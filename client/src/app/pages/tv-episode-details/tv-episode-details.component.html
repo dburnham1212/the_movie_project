@@ -1,0 +1,28 @@
+<div class="tv-episode-details__heading-container">
+  <img
+    src="http://image.tmdb.org/t/p/w500/{{ episodeDetails.still_path }}" 
+  >
+  <div class="tv-episode-details__heading-details-container">
+    <h1>{{tvDetails.name}}</h1>
+    <h2>{{episodeDetails.name}}</h2>
+    <p>{{episodeDetails.overview}}</p>
+    <h3>Runtime: {{episodeDetails.runtime}}mins</h3>
+    <div class="tv-episode-details__rating">
+      Rating: {{episodeDetails.vote_average}}/10
+    </div>
+  </div>
+</div>
+
+<div class="tv-episode-details__line-break"></div>
+
+<app-video-display
+  [videoDisplayDetails]="episodeVideos"
+>
+</app-video-display>
+
+<div class="tv-episode-details__line-break"></div>
+
+<app-cast-details
+  [castDetails]="episodeCredits"
+>
+</app-cast-details>

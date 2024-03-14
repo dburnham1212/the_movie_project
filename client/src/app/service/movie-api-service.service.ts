@@ -124,11 +124,6 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseUrl}/tv/${id}/videos?api_key=${this.apiKey}`)
   }
 
-  getTvSeasonDetails(id: any, seasonNumber: any):Observable<any>
-  {
-    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}?api_key=${this.apiKey}`)
-  }
-
   getTvRecommentations(id: any):Observable<any>
   {
     return this.http.get(`${this.baseUrl}/tv/${id}/recommendations?api_key=${this.apiKey}`)
@@ -137,5 +132,31 @@ export class MovieApiServiceService {
   getSimilarTv(id: any):Observable<any>
   {
     return this.http.get(`${this.baseUrl}/tv/${id}/similar?api_key=${this.apiKey}`)
+  }
+
+  // Get tv season details
+  getTvSeasonDetails(id: any, seasonNumber: any):Observable<any>
+  {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}?api_key=${this.apiKey}`)
+  }
+
+  getTvSeasonVideos(id: any, seasonNumber: any):Observable<any> {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}/videos?api_key=${this.apiKey}`)
+  }
+
+  getTvSeasonCredits(id: any, seasonNumber: any):Observable<any> {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}/credits?api_key=${this.apiKey}`)
+  }
+
+  getTvEpisodeDetails(id: any, seasonNumber: any, episodeNumber: any):Observable<any> {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}/episode/${episodeNumber}?api_key=${this.apiKey}`)
+  }
+
+  getTvEpisodeCredits(id: any, seasonNumber: any, episodeNumber: any):Observable<any> {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}/episode/${episodeNumber}/credits?api_key=${this.apiKey}`)
+  }
+
+  getTvEpisodeVideos(id: any, seasonNumber: any, episodeNumber: any):Observable<any> {
+    return this.http.get(`${this.baseUrl}/tv/${id}/season/${seasonNumber}/episode/${episodeNumber}/videos?api_key=${this.apiKey}`)
   }
 }

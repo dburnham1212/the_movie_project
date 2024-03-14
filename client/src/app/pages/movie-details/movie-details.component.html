@@ -1,11 +1,11 @@
 <div class="movie-details__container">
-  <div class="movie-details__header">
-    <img
+  <div *ngIf="movieResult" class="movie-details__header">
+    <img 
       src="https://image.tmdb.org/t/p/original/{{ movieResult.poster_path }}" 
       alt="s.title"
     >
     <div>
-      <h1>{{ movieResult.original_title }} ({{ getYear(movieResult.release_date) }})</h1>
+      <h1>{{ movieResult.title }} ({{ getYear(movieResult.release_date) }})</h1>
       <p>{{ movieResult.overview }}</p>
       <div class="movie-details__rating">
         Rating: {{movieResult.vote_average}}/10
@@ -16,21 +16,10 @@
 
 <div class="movie-details__line-break"></div>
 
-<section class="movie-details__videos-section">
-  <h2>Trailers</h2>
-  <div class="movie-details__videos-container">
-    <ng-container *ngFor="let video of movieVideoResult; let i = index">
-      <ng-container *ngIf="video.site === 'YouTube' && (video.type==='Trailer' || video.type==='Teaser')"> 
-        <div class="movie-details__video">
-          <h5>{{video.name}}</h5>
-          <iframe 
-            [src]="getSanitizedYTVideoUrl(movieVideoResult[i].key)" allowfullscreen>
-          </iframe>
-        </div>
-      </ng-container>
-    </ng-container>
-  </div>
-</section>
+<app-video-display
+  [videoDisplayDetails]="movieVideoResult"
+>
+</app-video-display>
 
 <div class="movie-details__line-break"></div>
 

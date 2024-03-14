@@ -1,0 +1,19 @@
+<section class="video-display__videos-section">
+  <h2>Trailers</h2>
+  <ng-container *ngIf="videoDisplayDetails.length > 0, else other_content">
+    <div class="video-display__videos-container">
+      <ng-container *ngFor="let video of videoDisplayDetails; let i = index">
+        <div class="video-display__video">
+          <h5>{{video.name}}</h5>
+          <iframe 
+            [src]="getSanitizedYTVideoUrl(videoDisplayDetails[i].key)" allowfullscreen>
+          </iframe>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #other_content>
+    <h3>No Trailers Available</h3>
+  </ng-template>
+</section>
+
