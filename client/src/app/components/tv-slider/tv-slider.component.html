@@ -1,7 +1,14 @@
 <div class="tv-slider__contain">
   <div class="tv-slider__row">
     <h4>{{ heading }}</h4>
-    <div class="tv-slider__row-poster" >
+    <div
+      (mousedown)="onMouseDown($event)" 
+      (mousemove)="onMouseMove($event)" 
+      (mouseup)="onMouseUp($event)" 
+      (mouseleave)="onMouseUp($event)"
+      [scrollLeft]="newMouseOffset" 
+      class="tv-slider__row-poster" 
+    >
       <ng-container *ngFor="let t of tvShows">
         <img 
           src="https://image.tmdb.org/t/p/w200/{{ t.poster_path }}" 

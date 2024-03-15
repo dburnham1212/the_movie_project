@@ -1,0 +1,64 @@
+#media-types
+  margin: 20px 20px 0 20px
+  background-color: black
+  color: white
+  padding: 10px
+  font-size: 1.5rem
+  border-radius: 5px
+
+#genre-types
+  margin: 20px 20px 0 20px
+  background-color: black
+  color: white
+  padding: 10px
+  font-size: 1.5rem
+  border-radius: 5px
+
+.browse__container
+  padding: 20px
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  grid-gap: 1rem
+
+  .browse__card
+    display: flex
+    gap: 1rem
+    border: 1px solid lightgrey
+    border-radius: 10px      
+    padding: 10px
+
+    .browse__view-more
+      cursor: pointer
+      width: 100%
+      height: 200px
+      display: flex
+      align-items: center
+      justify-content: center
+
+      h1
+        color: lightgrey
+
+    .browse__view-more:hover
+      h1
+        color: white
+
+    img
+      height: 200px
+      cursor: pointer
+
+
+    h5
+      color: lightgrey
+      margin-bottom: 10px
+
+    p
+      color: lightgrey
+      font-size: .8rem
+
+@media (max-width: 1200px)
+  .browse__container
+    grid-template-columns: 1fr 1fr
+
+@media (max-width: 768px)
+  .browse__container
+    grid-template-columns: 1fr

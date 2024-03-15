@@ -6,11 +6,13 @@ import { PersonDetailsComponent } from './pages/person-details/person-details.co
 import { TvDetailsComponent } from './pages/tv-details/tv-details.component';
 import { TvSeasonDetailsComponent } from './pages/tv-season-details/tv-season-details.component';
 import { TvEpisodeDetailsComponent } from './pages/tv-episode-details/tv-episode-details.component';
+import { BrowseComponent } from './pages/browse/browse.component';
 
 export const routes: Routes = [
   {path: '', component:HomeComponent},
+  {path: 'browse', component:BrowseComponent},
   {path: 'search', component:SearchComponent},
-  {path: 'movie/:id', component:MovieDetailsComponent, pathMatch: "full"},
+  {path: 'movie/:id', component:MovieDetailsComponent},
   {path: 'person/:id', component:PersonDetailsComponent},
   {path: 'tv/:id', component:TvDetailsComponent},
   {path: 'tv/:id/season/:season_number', component:TvSeasonDetailsComponent},

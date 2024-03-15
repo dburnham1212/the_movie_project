@@ -36,15 +36,34 @@ export class MovieApiServiceService {
   }
 
   // get movie data by a specific genre id
-  getMovieDataByGenreId(genre: string):Observable<any>
+  getMovieDataByGenreId(genre: string | null):Observable<any>
   {
     return this.http.get(`${this.baseUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genre}`)
+  }
+
+  getMovieDataByGenreIdAndPage(genre: string | null, page: number | null):Observable<any>
+  {
+    return this.http.get(`${this.baseUrl}/discover/movie?api_key=${this.apiKey}&with_genres=${genre}&page=${page}`)
   }
 
   // get movie tv by a specific genre id
   getTvDataByGenreId(genre: string):Observable<any>
   {
     return this.http.get(`${this.baseUrl}/discover/tv?api_key=${this.apiKey}&with_genres=${genre}`)
+  }
+
+  // get movie tv by a specific genre id
+  getTvDataByGenreIdAndPage(genre: string | null, page: number | null):Observable<any>
+  {
+    return this.http.get(`${this.baseUrl}/discover/tv?api_key=${this.apiKey}&with_genres=${genre}&page=${page}`)
+  }
+
+  getMovieGenres():Observable<any>{
+    return this.http.get(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}`)
+  }
+
+  getTvGenres():Observable<any>{
+    return this.http.get(`${this.baseUrl}/genre/tv/list?api_key=${this.apiKey}`)
   }
 
   // search movie data

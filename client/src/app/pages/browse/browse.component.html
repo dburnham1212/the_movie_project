@@ -1,0 +1,60 @@
+<select 
+  #mediaTypes
+  name="media-types" 
+  id="media-types"
+  (change)="onSelectedMediaType(mediaTypes.value)"
+>
+  <option value="movies">Movies</option>
+  <option value="tv">TV</option>
+</select>
+
+<select 
+  #genreTypes
+  name="genre-types" 
+  id="genre-types"
+  (change)="onSelectedGenre(genreTypes.value)"
+>
+  <option *ngFor="let genre of selectedGenres" value={{genre.id}}>{{genre.name}}</option>
+</select>
+
+<div *ngIf="selectedMediaType === 'movies'"class="browse__container">
+  <ng-container *ngFor="let movie of selectedMovieData">
+    <div class="browse__card">
+      <img 
+        src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" 
+        alt="s.title"
+        [routerLink]="['/movie',movie.id]"
+      >
+      <div>
+        <h5>{{movie.title}}</h5>
+        <p>{{movie.overview}}</p>
+      </div>
+    </div>
+  </ng-container>
+  <div class="browse__card">
+    <div (click)="getMoreMovies()" class="browse__view-more">
+      <h1>View More...</h1>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedMediaType === 'tv'"class="browse__container">
+  <ng-container *ngFor="let show of selectedTvData">
+    <div class="browse__card">
+      <img 
+        src="https://image.tmdb.org/t/p/original/{{ show.poster_path }}" 
+        alt="s.title"
+        [routerLink]="['/tv',show.id]"
+      >
+      <div>
+        <h5>{{show.name}}</h5>
+        <p>{{show.overview}}</p>
+      </div>
+    </div>
+  </ng-container>
+  <div class="browse__card">
+    <div (click)="getMoreTv()" class="browse__view-more">
+      <h1>View More...</h1>
+    </div>
+  </div>
+</div>
