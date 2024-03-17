@@ -27,7 +27,8 @@ export class SearchComponent {
   submitForm()
   {
     console.log(this.searchForm.value)
-    this.service.getSearchMovie(this.searchForm.value).subscribe((result) => {
+    this.service.getSearchData(this.searchForm.value).subscribe((result) => {
+      console.log(result);
       this.searchResult = result.results;
     });
   }

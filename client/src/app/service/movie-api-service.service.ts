@@ -67,9 +67,9 @@ export class MovieApiServiceService {
   }
 
   // search movie data
-  getSearchMovie(data:any):Observable<any>
+  getSearchData(data:any):Observable<any>
   {
-    return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${data.movieName}`)
+    return this.http.get(`${this.baseUrl}/search/multi?api_key=${this.apiKey}&query=${data.movieName}`)
   }
 
   getMovieDetails(data:any):Observable<any>

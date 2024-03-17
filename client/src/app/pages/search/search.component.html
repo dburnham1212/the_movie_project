@@ -8,7 +8,9 @@
 </div>
 
 <div class="search__results-container">
+  
   <div class="search__results-card" *ngFor="let s of searchResult">
+    <ng-container *ngIf="s.media_type === 'movie'">
       <div *ngIf="s.poster_path">
         <img
           src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}" 
@@ -25,9 +27,52 @@
         </div>
       </div>
       <div class="search__results-info">
-        <h5 *ngIf="s.title">{{s.title}}</h5>
+        <h5 *ngIf="s.title">{{s.title}} ({{s.media_type}})</h5>
         <p *ngIf="s.overview">{{s.overview}}</p>
         <p *ngIf="!s.overview">No Overview Found</p>
       </div>
+    </ng-container>
+    <ng-container *ngIf="s.media_type === 'tv'">
+      <div *ngIf="s.poster_path">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}" 
+          alt="s.title"
+          [routerLink]="['/tv',s.id]"
+        >
+      </div>
+      <div *ngIf="!s.poster_path">
+        <div  
+          class="search_results-no-image"
+          [routerLink]="['/tv',s.id]"
+        >
+            No Image Found
+        </div>
+      </div>
+      <div class="search__results-info">
+        <h5 *ngIf="s.name">{{s.name}} ({{s.media_type}})</h5>
+        <p *ngIf="s.overview">{{s.overview}}</p>
+        <p *ngIf="!s.overview">No Overview Found</p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="s.media_type === 'person'">
+      <div *ngIf="s.profile_path">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ s.profile_path }}" 
+          alt="s.title"
+          [routerLink]="['/person',s.id]"
+        >
+      </div>
+      <div *ngIf="!s.profile_path">
+        <div  
+          class="search_results-no-image"
+          [routerLink]="['/person',s.id]"
+        >
+            No Image Found
+        </div>
+      </div>
+      <div class="search__results-info">
+        <h5 *ngIf="s.name">{{s.name}} ({{s.media_type}})</h5>
+      </div>
+    </ng-container>
   </div>
 </div>
