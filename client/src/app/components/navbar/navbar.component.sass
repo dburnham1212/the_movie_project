@@ -1,0 +1,70 @@
+.navbar
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-bottom: 1px solid grey
+  width: 100vw
+  max-width: 100%
+  position: sticky
+  top: 0
+  background-color: black
+  z-index: 1000
+  
+
+  .navbar__brand
+    font-size: 1.5em
+    text-decoration: none
+    padding: 5px 10px
+    color: #E50914
+    font-weight: bold
+    
+    
+  i
+    color: lightgrey
+    margin: 0 20px
+    display: none
+    position: absolute
+    top: 12.5px
+    right: 0
+    cursor: pointer
+
+  .navbar__links
+    display: flex
+    align-items: center
+    justify-content: center 
+    overflow: hidden
+    padding: 0 10px
+    gap: 1em  
+    transition: all 0.5s ease-out
+
+    a 
+      color: lightgrey
+      text-decoration: none
+
+      &:hover 
+        color: white
+
+@media (max-width: 768px) 
+  .navbar 
+    flex-direction: column
+    text-align: center
+
+    i
+      display: block
+
+    h1 
+      border-bottom: 1px solid grey
+    
+    .navbar__brand
+      border-bottom: 1px solid grey
+      width: 100%
+
+    .navbar__links
+      flex-direction: column
+      max-height: 0
+      padding: 0
+     
+    .navbar__links.navbar__links-active
+      overflow: hidden
+      max-height: 500px
+      padding: 10px 0

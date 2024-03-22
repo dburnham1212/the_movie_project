@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <a class="navbar__brand" routerLink="/" >{{ title }}</a>
+  <div class = "navbar__links" [ngClass]="{'navbar__links-active': open}">
+    <a routerLink="/">
+      Home
+    </a>
+    <a routerLink="browse">
+      Browse
+    </a>
+    <a routerLink="search">
+      Search
+    </a>
+  </div>
+  <i class="fa-solid fa-bars" (click)="onOpen()"></i>
+</nav>
