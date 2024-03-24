@@ -1,25 +1,28 @@
 <section class="movie-details__cast-section">
   <h2>Cast</h2>
-  <ng-container *ngIf="castDetails">
+  <ng-container *ngIf="castDetails.length > 0; else no_cast_details">
     <div class="movie-details__cast-containter">
-      <ng-container  *ngFor="let c of castDetails">
-        <div class="movie-details__cast-card">
-          <img
-            *ngIf="c.profile_path; else no_img_content"
-            src="http://image.tmdb.org/t/p/w500/{{ c.profile_path }}" 
-            [routerLink]="['/person',c.id]"
-          >
-          <ng-template #no_img_content>
-            <div class="movie-details__cast-noimg">
-              NO IMAGE FOUND
+        <ng-container  *ngFor="let c of castDetails">
+          <div class="movie-details__cast-card">
+            <img
+              *ngIf="c.profile_path; else no_img_content"
+              src="http://image.tmdb.org/t/p/w500/{{ c.profile_path }}" 
+              [routerLink]="['/person',c.id]"
+            >
+            <ng-template #no_img_content>
+              <div class="movie-details__cast-noimg">
+                NO IMAGE FOUND
+              </div>
+            </ng-template>
+            <div>
+              <h5>{{c.name}}</h5>
+              <h6 *ngIf="c.character">as {{c.character}}</h6>
             </div>
-          </ng-template>
-          <div>
-            <h5>{{c.name}}</h5>
-            <h6 *ngIf="c.character">as {{c.character}}</h6>
           </div>
-        </div>
-      </ng-container>
-    </div>
-  </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-template #no_cast_details>
+      <h3>Cast Information Unavailable</h3>
+    </ng-template>
 </section>

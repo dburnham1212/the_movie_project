@@ -1,18 +1,23 @@
 <div class="recommended-details__recommended-container">
   <h2>{{heading}}</h2>
-  <div
-    (mousedown)="onMouseDown($event)" 
-    (mousemove)="onMouseMove($event)" 
-    (mouseup)="onMouseUp($event)" 
-    (mouseleave)="onMouseUp($event)"
-    [scrollLeft]="newMouseOffset" 
-    class="recommended-details__recommended-poster-container"
-  >
-    <ng-container *ngFor="let r of recommendationDetails">
-      <img 
-        src="https://image.tmdb.org/t/p/w500/{{ r.poster_path }}"
-        [routerLink]="[basePath ,r.id]"
-      >
-    </ng-container>
-  </div>
+  <ng-container *ngIf="recommendationDetails.length > 0; else no_recommended_content">
+    <div
+      (mousedown)="onMouseDown($event)" 
+      (mousemove)="onMouseMove($event)" 
+      (mouseup)="onMouseUp($event)" 
+      (mouseleave)="onMouseUp($event)"
+      [scrollLeft]="newMouseOffset" 
+      class="recommended-details__recommended-poster-container"
+    >
+      <ng-container *ngFor="let r of recommendationDetails">
+        <img
+          src="https://image.tmdb.org/t/p/w500/{{ r.poster_path }}"
+          [routerLink]="[basePath ,r.id]"
+        >
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #no_recommended_content>
+    <h3>None</h3>
+  </ng-template>
 </div>

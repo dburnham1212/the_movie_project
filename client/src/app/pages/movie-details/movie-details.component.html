@@ -1,11 +1,16 @@
 <div class="movie-details__container">
   <div *ngIf="movieResult" class="movie-details__header">
-    <img 
+    <img *ngIf="movieResult.poster_path; else no_movie_image"
       src="https://image.tmdb.org/t/p/original/{{ movieResult.poster_path }}" 
       alt="s.title"
     >
+    <ng-template #no_movie_image>
+      <div class="move-details__no-movie-image">
+        NO IMAGE FOUND
+      </div>
+    </ng-template>
     <div>
-      <h1>{{ movieResult.title }} ({{ getYear(movieResult.release_date) }})</h1>
+      <h1>{{ movieResult.title }} ({{ getYear(movieResult.release_date) || "No Year Found" }})</h1>
       <p>{{ movieResult.overview }}</p>
       <div class="movie-details__rating">
         Rating: {{movieResult.vote_average}}/10
