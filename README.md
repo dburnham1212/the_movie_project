@@ -8,8 +8,23 @@ The movie project is a client based application that makes use of TMDB. It was a
 
 Displays a carousel of the different movies and tv shows that are currently trending as well as different movies and shows by genre below the carousel.
 
-!["Screenshot of Main Page!"](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Main_Carousel.png)
+!["Screenshot of Main Page!" (Carousel)](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Main_Carousel.png)
 
+!["Screenshot of Main Page!" (Movie Listings)](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Main_Movie_Listings.png)
+
+!["Screenshot of Main Page!" (Tv Listings)](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Main_Tv_Listings.png)
+
+### The Movie Project - Browse Page
+
+Allows users of the app to browse different movies and tv shows based off of a specific genre
+
+!["Screenshot of Browse Page!"](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Browse_Page.png)
+
+### The Movie Project - Search Page
+
+Allows users of the app to search for different movies, tv shows, and people
+
+!["Screenshot of Search Page!"](https://github.com/dburnham1212/the_movie_project/blob/main/Screenshots/Movie_Project_Search_Page.png)
 
 # Client
 
