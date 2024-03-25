@@ -10,10 +10,18 @@
       class="recommended-details__recommended-poster-container"
     >
       <ng-container *ngFor="let r of recommendationDetails">
-        <img
+        <img *ngIf="r.poster_path; else no_poster_path"
           src="https://image.tmdb.org/t/p/w500/{{ r.poster_path }}"
           [routerLink]="[basePath ,r.id]"
         >
+        <ng-template #no_poster_path>
+          <div 
+            class="recommended-details__no-img"
+            [routerLink]="[basePath ,r.id]"
+          >
+            {{r.title}}
+          </div>
+        </ng-template>
       </ng-container>
     </div>
   </ng-container>

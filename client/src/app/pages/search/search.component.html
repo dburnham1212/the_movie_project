@@ -20,7 +20,7 @@
       </div>
       <div *ngIf="!s.poster_path">
         <div  
-          class="search_results-no-image"
+          class="search__results-no-image"
           [routerLink]="['/movie',s.id]"
         >
             No Image Found
@@ -42,7 +42,7 @@
       </div>
       <div *ngIf="!s.poster_path">
         <div  
-          class="search_results-no-image"
+          class="search__results-no-image"
           [routerLink]="['/tv',s.id]"
         >
             No Image Found
@@ -64,7 +64,7 @@
       </div>
       <div *ngIf="!s.profile_path">
         <div  
-          class="search_results-no-image"
+          class="search__results-no-image"
           [routerLink]="['/person',s.id]"
         >
             No Image Found

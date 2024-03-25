@@ -1,3 +1,16 @@
+# The Movie Project
+
+The movie project is a client based application that makes use of TMDB. It was a project that I created in order to learn the Angular framework. It doesnt make use of any CSS libraries as I also wanted to improve my abilities in CSS or more specifically SASS as a whole. 
+
+## Final 
+
+### The Movie Project - Home Page
+
+Displays all listings available to a user and allows the user to search for specific listings based off of their address. You do not have to be logged in to view this page.
+
+!["Screenshot of Listings Page (displaying lisings)!"](https://github.com/dburnham1212/airbnb/blob/main/screenshots/ListingsPage.png)
+
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
