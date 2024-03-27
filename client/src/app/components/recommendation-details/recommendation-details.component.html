@@ -19,7 +19,7 @@
             class="recommended-details__no-img"
             [routerLink]="[basePath ,r.id]"
           >
-            {{r.title}}
+            {{r.title || r.name}}
           </div>
         </ng-template>
       </ng-container>

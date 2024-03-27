@@ -1,6 +1,6 @@
 # The Movie Project
 
-The movie project is a client based application that makes use of TMDB. It was a project that I created in order to learn the Angular framework. It doesnt make use of any CSS libraries as I also wanted to improve my abilities in CSS or more specifically SASS as a whole. 
+The movie project is a client based application that makes use of TMDB, an API used to retrieve information about different items within the entertainment industry. It is a project that I created in order to learn the Angular framework. It doesnt make use of any CSS libraries as I also wanted to improve my abilities in CSS or more specifically SASS as a whole. 
 
 ## Final 
 
