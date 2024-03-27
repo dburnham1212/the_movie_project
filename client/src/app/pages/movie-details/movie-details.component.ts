@@ -57,7 +57,6 @@ export class MovieDetailsComponent {
 
   getMovie(id:any) {
     this.service.getMovieDetails(id).subscribe((result) => {
-      console.log(result);
       this.movieResult = result;
     })
   }
@@ -71,14 +70,12 @@ export class MovieDetailsComponent {
       let filteredMovieVideoDetails:any = result.results.filter((video:any) => {
         return video.site==='YouTube' && (video.type==='Trailer' || video.type==='Teaser')
       })
-      console.log(filteredMovieVideoDetails);
       this.movieVideoResult = filteredMovieVideoDetails;
     })
   }
   
   getMovieReviews(id: any) {
     this.service.getMovieReviews(id).subscribe((result) => {
-      console.log(result)
       this.movieReviews = result.results
     })
   }
@@ -91,14 +88,12 @@ export class MovieDetailsComponent {
 
   getMovieReccomentations(id: any) {
     this.service.getMovieRecommentations(id).subscribe((result) => {
-      console.log("recommendations", result);
       this.movieRecommendations = result.results;
     })
   }
 
   getMovieCast(id:any) {
     this.service.getMovieCast(id).subscribe((result) => {
-      console.log(result.cast)
       this.movieCastResult = result.cast
     })
   }

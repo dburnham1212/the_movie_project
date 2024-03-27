@@ -1,31 +1,33 @@
 <div class="recommended-details__recommended-container">
   <h2>{{heading}}</h2>
-  <ng-container *ngIf="recommendationDetails.length > 0; else no_recommended_content">
-    <div
-      (mousedown)="onMouseDown($event)" 
-      (mousemove)="onMouseMove($event)" 
-      (mouseup)="onMouseUp($event)" 
-      (mouseleave)="onMouseUp($event)"
-      [scrollLeft]="newMouseOffset" 
-      class="recommended-details__recommended-poster-container"
-    >
-      <ng-container *ngFor="let r of recommendationDetails">
-        <img *ngIf="r.poster_path; else no_poster_path"
-          src="https://image.tmdb.org/t/p/w500/{{ r.poster_path }}"
-          [routerLink]="[basePath ,r.id]"
-        >
-        <ng-template #no_poster_path>
-          <div 
-            class="recommended-details__no-img"
+  <ng-container *ngIf="recommendationDetails">
+    <ng-container *ngIf="recommendationDetails.length > 0; else no_recommended_content">
+      <div
+        (mousedown)="onMouseDown($event)" 
+        (mousemove)="onMouseMove($event)" 
+        (mouseup)="onMouseUp($event)" 
+        (mouseleave)="onMouseUp($event)"
+        [scrollLeft]="newMouseOffset" 
+        class="recommended-details__recommended-poster-container"
+      >
+        <ng-container *ngFor="let r of recommendationDetails">
+          <img *ngIf="r.poster_path; else no_poster_path"
+            src="https://image.tmdb.org/t/p/w500/{{ r.poster_path }}"
             [routerLink]="[basePath ,r.id]"
           >
-            {{r.title || r.name}}
-          </div>
-        </ng-template>
-      </ng-container>
-    </div>
+          <ng-template #no_poster_path>
+            <div 
+              class="recommended-details__no-img"
+              [routerLink]="[basePath ,r.id]"
+            >
+              {{r.title || r.name}}
+            </div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-template #no_recommended_content>
+      <h3>None</h3>
+    </ng-template>
   </ng-container>
-  <ng-template #no_recommended_content>
-    <h3>None</h3>
-  </ng-template>
 </div>
